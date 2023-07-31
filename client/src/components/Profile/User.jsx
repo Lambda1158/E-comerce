@@ -2,10 +2,8 @@ import React from 'react';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import { getUserbyId, PROXY } from '../../actions';
+import { getUserbyId } from '../../actions';
 import defaultImage from '../../assets/profile_default.png'
-import {useState} from "react"
-import axios from "axios"
 //import { Box, Image, Button } from '@chakra-ui/react';
 
 export default function Profile({modal}){
@@ -16,7 +14,7 @@ export default function Profile({modal}){
     
     useEffect(() => {
         dispatch(getUserbyId(id));
-    },[modal])
+    },[modal,id,dispatch])
 
     function handleOnClick(e){
         e.preventDefault();
@@ -32,7 +30,7 @@ export default function Profile({modal}){
                     <img className='rounded-full border-4 border-semilight w-72' src={user.image? user.image : defaultImage} alt={user.username}/>
                 </div>
                 <div className='flex opacity-30 relative bottom-14 left-52 justify-center items-center w-12 h-12 bg-gray rounded-full shadow-xl hover:opacity-100 duration-70'>
-                    <button  onClick={(e) => handleOnClick(e)}><img width='44px' heigth='44px' src='https://codes.unidepix.com/img/photo.svg' alt='Photo icon' /></button>
+                    <button  onClick={(e) => handleOnClick(e)}><img width='44px' heigth='44px' src='https://codes.unidepix.com/img/photo.svg' alt='userpic' /></button>
                 </div>
             </div>
             <div className='flex flex-col w-full'>

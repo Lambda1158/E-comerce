@@ -234,7 +234,7 @@ conn.sync({ force: true }).then(() => {
       timeZone: " GMT-6",
       language: " español",
     });
-    await testpost1.setCategory(7); //Le agrego musica y audio de categoria al post Guitarra testpost2
+    await testpost2.setCategory(7); //Le agrego musica y audio de categoria al post Guitarra testpost2
     await testpost2.setUser(testuser1); //Franco Bennitez crea el post clase de canto
 
     var testPostProfile3 = await Posts.create({

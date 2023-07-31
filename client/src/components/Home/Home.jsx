@@ -41,6 +41,7 @@ export default function Home() {
 
   function handleCatFilter(e) {
     e.preventDefault();
+    console.log(e.target.value)
     dispatch(filteredCat(e.target.value));
   }
 
@@ -106,6 +107,7 @@ export default function Home() {
             <option value="Mantenimiento del hogar">
               Mantenimiento del hogar
             </option>
+            <option value="Meditación">Meditación</option>
           </select>
         </div>
         <div>

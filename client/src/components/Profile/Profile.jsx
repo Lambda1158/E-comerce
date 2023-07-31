@@ -23,7 +23,7 @@ export default function Profile(){
 
     useEffect(() => {
         dispatch(getUserbyId(id));
-    },[modal])
+    },[modal,id,dispatch])
 
     return(
         <section className='flex flex-col w-full h-full bg-semilight'>
