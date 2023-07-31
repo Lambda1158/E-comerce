@@ -22,6 +22,7 @@
     "firebase": "^8.3.3",
     "firebase-tools": "^9.23.1",
     "framer-motion": "^4.1.17",
+    "preact": "^10.16.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-modal": "^3.14.4",

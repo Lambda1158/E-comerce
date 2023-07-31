@@ -3,8 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import Nav from "./Nav";
 import Footer from "../Landing/Footer";
 import TalentCard from "./TalentCard";
-import { getTalents } from "../../actions";
-//import Categories from "./Categories";
+import { getCategories, getTalents } from "../../actions";
+import { FilteredCat } from "../Filter/FilteredCat";
 import Form from "../SignIn/FormSI";
 import Register from "../Register/Register";
 import { SortByPrice } from "../Sort/SortByPrice";
@@ -17,11 +17,12 @@ export default function Home() {
   let skill = useSelector((state) => state.index.filteredTalents);
   //let skillAprobados = skill.filter(el => el.aprobado === true);
   const cargando = useSelector((state) => state.index.cargando);
+  const categories=useSelector((state)=>state.index.categories)
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getTalents());
+    dispatch(getCategories())
   }, [dispatch]);
-
   const [ventanaLogIn, setVentanaLogIn] = useState(false);
   const [ventanaRegister, setVentanaRegister] = useState(false);
 
@@ -83,31 +84,7 @@ export default function Home() {
         <div>
           <span>Categorias: </span>
           <select onChange={(e) => handleCatFilter(e)}>
-            <option value="todas">Todas</option>
-            <option value="Programación y Tecnologias">
-              Programación y Tecnologias
-            </option>
-            <option value="Arte">Arte</option>
-            <option value="Botánica">Botánica</option>
-            <option value="Cocina">Cocina</option>
-            <option value="Negocios">Negocios</option>
-            <option value="Deporte">Deporte</option>
-            <option value="Música y Audio">Música y Audio</option>
-            <option value="Ilustración, Video y Fotografia">
-              Ilustración, Video y Fotografia
-            </option>
-            <option value="Marketing">Marketing</option>
-            <option value="Escritura y Traducción">
-              Escritura y Traducción
-            </option>
-            <option value="Idioma">Idioma</option>
-            <option value="Baile">Baile</option>
-            <option value="Historia y Cultura">Historia y Cultura</option>
-            <option value="Educación">Educación</option>
-            <option value="Mantenimiento del hogar">
-              Mantenimiento del hogar
-            </option>
-            <option value="Meditación">Meditación</option>
+          {categories.map(e=><FilteredCat category={e.title}/>)}
           </select>
         </div>
         <div>

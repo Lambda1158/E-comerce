@@ -262,15 +262,12 @@ export function filteredCat(payload) {
 
 export function getTalentByRating(rating) {
   return async function (dispatch) {
-    try {
-      let json = await axios.get(`${PROXY}/post/rating/` + rating);
+
       return dispatch({
         type: TALENT_BY_RATING,
-        payload: json.data,
+        payload: rating,
       });
-    } catch (error) {
-      console.log(error);
-    }
+
   };
 }
 

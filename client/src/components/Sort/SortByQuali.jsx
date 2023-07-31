@@ -14,7 +14,6 @@ export function SortByQuali(){
         <div>
         <label class='font-semibold'>Calificación: </label>
         <select onChange={(e) => handleSort(e)}>
-            <option default value=''></option>
             <option value='asc'>Baja</option>
             <option value='desc'>Alta</option>
         </select>
