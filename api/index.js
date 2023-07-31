@@ -52,6 +52,8 @@ conn.sync({ force: true }).then(() => {
       { title: "Educación" },
       { title: "Mantenimiento del hogar" },
       { title: "Meditación" },
+      {title:"All"}
+      
     ])
       .then((e) => {})
       .catch((e) => console.log(e));
@@ -287,7 +289,7 @@ conn.sync({ force: true }).then(() => {
         " Aprenderás sobre reparaciones e instalación de equipos sanitarios, tuberías de gas o agua como también los equipos y herramientas esenciales para problemas comunes",
       cost: 300,
       image: [
-        "https://casapropiacolombia.com/sites/default/files/2019-12/11_0.jpg",
+        "https://www.albaniles.org/wp-content/uploads/2016/08/plomero1-1024x713.jpg",
       ],
       timeZone: " GMT-6",
       language: " español",
@@ -349,6 +351,14 @@ conn.sync({ force: true }).then(() => {
     await testReviewProfile3.setUser(usuarioPrueba4); //Sebastian Cepeda hace una review sobre el post q compro
     await testReviewProfile3.setPost(testPostProfile3); //EL post sobre el q se hizo la review Clases de cultivos
     calcularRating(testPostProfile3, testReviewProfile3);
+
+    var  reviewviola=await Review.create({ //review sobre guitarra
+      qualification:3,
+      description:"buena guitarra"
+    });
+    await reviewviola.setUser(testuser3) // el usuario test user 3 
+    await reviewviola.setPost(testpost2) // sobre post de guitarra 
+    calcularRating(testpost2, reviewviola);
 
     //----------------------------------------------- QUESTIONS---------------------------------------------------------------------
     var testQuestionProfile = await Question.create({
