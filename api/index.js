@@ -52,7 +52,7 @@ conn.sync({ force: true }).then(() => {
       { title: "Educación" },
       { title: "Mantenimiento del hogar" },
       { title: "Meditación" },
-      {title:"All"}
+      {title:"Todos"}
       
     ])
       .then((e) => {})
