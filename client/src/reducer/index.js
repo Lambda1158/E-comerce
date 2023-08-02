@@ -171,7 +171,6 @@ export default function rootReducer(state = initialState, action) {
             return 0;
           })
         }
-        console.log(aux)
       return {
         ...state,
         filteredTalents: aux,
