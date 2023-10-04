@@ -210,7 +210,7 @@ const editUser = async (req, res, next) => {
   try {
     var user = await Users.findOne({ where: { username } });
     if(file){
-      let path = "https://hitalent-project.herokuapp.com/" + file.filename;
+      let path = "http://localhost:3001" + file.filename;
       user.image = path;
     }
     if(country) user.country=country
