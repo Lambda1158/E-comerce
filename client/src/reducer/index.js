@@ -149,7 +149,7 @@ export default function rootReducer(state = initialState, action) {
     case FILTRO_CAT:
       let allCat = state.talents;
       let fil =
-        action.payload === "All"
+        action.payload === "Todos"
           ? allCat
           : allCat.filter((el) => el?.category?.title === action.payload);
       return {
@@ -157,15 +157,15 @@ export default function rootReducer(state = initialState, action) {
         filteredTalents: fil,
       };
     case TALENT_BY_RATING:  
-        let aux=state.filteredTalents
+        let talentReview = [...state.filteredTalents];
         if(action.payload==="asc"){
-          aux.sort(function (a, b) {
+          talentReview.sort(function (a, b) {
             if (a.rating > b.rating) return 1;
             if (b.rating > a.rating) return -1;
             return 0;
           })
         }else if(action.payload==="desc"){
-          aux.sort(function (a, b) {
+          talentReview.sort(function (a, b) {
             if (a.rating > b.rating) return -1;
             if (b.rating > a.rating) return 1;
             return 0;
@@ -173,7 +173,7 @@ export default function rootReducer(state = initialState, action) {
         }
       return {
         ...state,
-        filteredTalents: aux,
+        filteredTalents: talentReview,
       };
     case CARGANDO:
       return { ...state, cargando: true };
